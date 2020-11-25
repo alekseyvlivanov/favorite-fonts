@@ -14,7 +14,7 @@ This is a simple font selection app.
 
 ## Dependencies
 
-- [WIP]
+- [Material-UI](https://material-ui.com) is used for styling
 
 ## Install
 
