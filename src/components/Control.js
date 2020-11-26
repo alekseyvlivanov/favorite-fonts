@@ -1,14 +1,18 @@
-import Container from '@material-ui/core/Container';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import MenuItem from '@material-ui/core/MenuItem';
-import Paper from '@material-ui/core/Paper';
-import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
-import Tooltip from '@material-ui/core/Tooltip';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-// import FlareIcon from '@material-ui/icons/Flare';
-// import GridOnIcon from '@material-ui/icons/GridOn';
+import {
+  Container,
+  IconButton,
+  List,
+  MenuItem,
+  Paper,
+  Select,
+  TextField,
+  Tooltip,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import FlareIcon from '@material-ui/icons/Flare';
+import GridOnIcon from '@material-ui/icons/GridOn';
 import ListIcon from '@material-ui/icons/List';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import UndoIcon from '@material-ui/icons/Undo';
@@ -20,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   form: {
+    zIndex: 10,
     position: 'sticky',
     top: 0,
     paddingTop: theme.spacing(1),
@@ -32,35 +37,87 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Control() {
+function Control({
+  options: {
+    fontName,
+    setFontName,
+    fontText,
+    setFontText,
+    fontSize,
+    setFontSize,
+    listMode,
+    setListMode,
+    favoritesMode,
+    setFavoritestMode,
+    theme,
+    setTheme,
+  },
+}) {
   const classes = useStyles();
+
+  const darkTheme = theme === 'dark';
 
   return (
     <Paper className={classes.form} component="form" square>
       <Container className={classes.container}>
-        <TextField className={classes.textField} label="Search fonts" />
-        <TextField className={classes.textField} label="Type something" />
+        <TextField
+          className={classes.textField}
+          label="Search fonts"
+          value={fontName}
+          onChange={(e) => setFontName(e.target.value)}
+        />
+        <TextField
+          className={classes.textField}
+          label="Type something"
+          value={fontText}
+          onChange={(e) => setFontText(e.target.value)}
+        />
         <List>
-          <Select defaultValue={32} labelId="font-size-label">
+          <Select
+            value={fontSize}
+            onChange={(e) => setFontSize(e.target.value)}
+          >
             <MenuItem value={20}>20px</MenuItem>
             <MenuItem value={24}>24px</MenuItem>
             <MenuItem value={32}>32px</MenuItem>
             <MenuItem value={40}>40px</MenuItem>
           </Select>
-          <Tooltip title="Toggle light/dark theme">
-            <IconButton aria-label="light/dark">
-              {/* <FlareIcon /> */}
-              <NightsStayIcon />
+          <Tooltip title="Toggle grid/list mode">
+            <IconButton
+              aria-label="grid/list"
+              onClick={() => setListMode(!listMode)}
+            >
+              {listMode ? <ListIcon /> : <GridOnIcon />}
             </IconButton>
           </Tooltip>
-          <Tooltip title="Toggle grid/list mode">
-            <IconButton aria-label="grid/list">
-              <ListIcon />
-              {/* <GridOnIcon /> */}
+          <Tooltip title="Show all/favorites fonts">
+            <IconButton
+              aria-label="all/favorites"
+              onClick={() => setFavoritestMode(!favoritesMode)}
+            >
+              {favoritesMode ? <BookmarkIcon /> : <BookmarkBorderIcon />}
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Toggle light/dark theme">
+            <IconButton
+              aria-label="light/dark"
+              onClick={() => setTheme(darkTheme ? 'light' : 'dark')}
+            >
+              {darkTheme ? <NightsStayIcon /> : <FlareIcon />}
             </IconButton>
           </Tooltip>
           <Tooltip title="Reset settings">
-            <IconButton aria-label="reset settings">
+            <IconButton
+              aria-label="reset settings"
+              onClick={() => {
+                setFontName('');
+                setFontText('');
+                setFontSize(32);
+                setListMode(false);
+                setFavoritestMode(false);
+                setTheme('light');
+              }}
+            >
               <UndoIcon />
             </IconButton>
           </Tooltip>

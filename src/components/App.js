@@ -1,9 +1,11 @@
-import Box from '@material-ui/core/Box';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Fab from '@material-ui/core/Fab';
-import Tooltip from '@material-ui/core/Tooltip';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import ArrowUpward from '@material-ui/icons/ArrowUpward';
+import { useState } from 'react';
+import { Box, CssBaseline, Fab, Tooltip } from '@material-ui/core';
+import {
+  createMuiTheme,
+  makeStyles,
+  ThemeProvider,
+} from '@material-ui/core/styles';
+import { ArrowUpward } from '@material-ui/icons';
 
 import AppFooter from './AppFooter';
 import AppHeader from './AppHeader';
@@ -13,6 +15,18 @@ import BackToTop from './BackToTop';
 const fonts = new Array(47)
   .fill()
   .map((_, idx) => ({ name: `Font ${idx + 1}` }));
+
+const lightTheme = createMuiTheme({
+  palette: {
+    type: 'light',
+  },
+});
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   fab: {
@@ -25,19 +39,21 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
 
+  const [theme, setTheme] = useState('light');
+
   return (
-    <>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <CssBaseline />
       <Box display="flex" flexDirection="column" minHeight="100vh">
         <AppHeader />
-        <AppMain fonts={fonts} />
+        <AppMain fonts={fonts} theme={theme} setTheme={setTheme} />
         <AppFooter />
         <BackToTop>
           <Tooltip title="Back to top">
             <Fab
               aria-label="back to top"
               className={classes.fab}
-              color="inherit"
+              color="default"
               size="medium"
             >
               <ArrowUpward />
@@ -45,7 +61,7 @@ function App() {
           </Tooltip>
         </BackToTop>
       </Box>
-    </>
+    </ThemeProvider>
   );
 }
 

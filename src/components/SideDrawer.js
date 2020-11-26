@@ -1,11 +1,7 @@
 import { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import Tooltip from '@material-ui/core/Tooltip';
-import makeStyles from '@material-ui/core/styles/makeStyles';
-import Menu from '@material-ui/icons/Menu';
+import { Button, Drawer, IconButton, List, Tooltip } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Menu } from '@material-ui/icons';
 
 const useStyles = makeStyles({
   nav: {

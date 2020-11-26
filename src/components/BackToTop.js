@@ -1,6 +1,5 @@
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Zoom from '@material-ui/core/Zoom';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import { useScrollTrigger, Zoom } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   div: {

@@ -1,11 +1,13 @@
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Hidden from '@material-ui/core/Hidden';
-import List from '@material-ui/core/List';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+import {
+  AppBar,
+  Button,
+  Container,
+  Hidden,
+  List,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 import SideDrawer from './SideDrawer';
 
@@ -34,7 +36,9 @@ function AppHeader() {
     <AppBar color="inherit" component="header" position="static">
       <Toolbar>
         <Container className={classes.container}>
-          <Typography variant="h6">Favorite&nbsp;Fonts</Typography>
+          <Typography component="h1" variant="h6">
+            Favorite&nbsp;Fonts
+          </Typography>
           <Hidden xsDown>
             <List aria-labelledby="main nav" component="nav">
               {navLinks.map(({ title, path }) => (
