@@ -12,7 +12,7 @@ import BackToTop from './BackToTop';
 
 const fonts = new Array(47)
   .fill()
-  .map((_, idx) => ({ name: `font ${idx + 1}` }));
+  .map((_, idx) => ({ name: `Font ${idx + 1}` }));
 
 const useStyles = makeStyles((theme) => ({
   fab: {

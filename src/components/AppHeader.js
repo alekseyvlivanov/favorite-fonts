@@ -35,7 +35,7 @@ function AppHeader() {
       <Toolbar>
         <Container className={classes.container}>
           <Typography variant="h6">Favorite&nbsp;Fonts</Typography>
-          <Hidden smDown>
+          <Hidden xsDown>
             <List aria-labelledby="main nav" component="nav">
               {navLinks.map(({ title, path }) => (
                 <Button
@@ -49,7 +49,7 @@ function AppHeader() {
               ))}
             </List>
           </Hidden>
-          <Hidden mdUp>
+          <Hidden smUp>
             <SideDrawer navLinks={navLinks} />
           </Hidden>
         </Container>

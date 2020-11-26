@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(0),
     paddingLeft: theme.spacing(2),
   },
+  textField: {
+    paddingRight: theme.spacing(1),
+  },
 }));
 
 function Control() {
@@ -35,8 +38,8 @@ function Control() {
   return (
     <Paper className={classes.form} component="form" square>
       <Container className={classes.container}>
-        <TextField label="Search fonts" />
-        <TextField label="Type something" />
+        <TextField className={classes.textField} label="Search fonts" />
+        <TextField className={classes.textField} label="Type something" />
         <List>
           <Select defaultValue={32} labelId="font-size-label">
             <MenuItem value={20}>20px</MenuItem>
