@@ -14,7 +14,10 @@ This is a simple font selection app.
 
 ## Dependencies
 
-- [Material-UI](https://material-ui.com) is used for styling
+- React plus hooks bootstrapped with CRA
+- [axios](https://github.com/axios/axios) for AJAX
+- styling with [Material-UI](https://material-ui.com)
+- [react-lazyload](https://github.com/twobin/react-lazyload) for loading fonts on request
 
 ## Install
 
