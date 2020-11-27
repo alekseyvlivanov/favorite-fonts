@@ -45,7 +45,7 @@ function Cards({
             lg={lgValue}
             xl={xlValue}
           >
-            <LazyLoad placeholder="Loading..." style={{ height: '100%' }}>
+            <LazyLoad style={{ height: '100%' }}>
               <FontCard
                 category={category}
                 family={family}
