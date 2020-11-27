@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazyload';
 import { Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -24,9 +25,24 @@ function Cards({ fonts, options: { fontText, fontSize, listMode } }) {
   return (
     <Container className={classes.container}>
       <Grid container spacing={3}>
-        {fonts.map(({ name }) => (
-          <Grid item key={name} xs={12} sm={smValue} lg={lgValue} xl={xlValue}>
-            <FontCard name={name} textValue={textValue} fontSize={fontSize} />
+        {fonts.map(({ category, family, url }) => (
+          <Grid
+            item
+            key={family}
+            xs={12}
+            sm={smValue}
+            lg={lgValue}
+            xl={xlValue}
+          >
+            <LazyLoad placeholder="Loading..." style={{ height: '100%' }}>
+              <FontCard
+                category={category}
+                family={family}
+                url={url}
+                textValue={textValue}
+                fontSize={fontSize}
+              />
+            </LazyLoad>
           </Grid>
         ))}
       </Grid>

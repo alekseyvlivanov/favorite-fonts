@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
-import 'fontsource-roboto';
+import 'fontsource-jetbrains-mono';
 
 ReactDOM.render(<App />, document.querySelector('#app'));
 

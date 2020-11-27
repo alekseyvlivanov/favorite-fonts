@@ -40,7 +40,12 @@ function AppMain({ fonts, theme, setTheme }) {
           setTheme,
         }}
       />
-      <Cards fonts={fonts} options={{ fontText, fontSize, listMode }} />
+      <Cards
+        fonts={fonts.filter((f) =>
+          f.lcFamily.includes(fontName.trim().toLowerCase()),
+        )}
+        options={{ fontText, fontSize, listMode }}
+      />
     </Paper>
   );
 }
