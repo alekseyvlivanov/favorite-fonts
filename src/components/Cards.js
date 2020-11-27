@@ -10,7 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Cards({ fonts, options: { fontText, fontSize, listMode } }) {
+function Cards({
+  fonts,
+  options: { fontText, fontSize, listMode, favorites, setVaforitesAndStorage },
+}) {
   const classes = useStyles();
 
   const textValue =
@@ -21,6 +24,16 @@ function Cards({ fonts, options: { fontText, fontSize, listMode } }) {
   const smValue = listMode ? 12 : 6;
   const lgValue = listMode ? 12 : 4;
   const xlValue = listMode ? 12 : 3;
+
+  const toggleFavorite = (family) => {
+    if (favorites.includes(family)) {
+      console.log(favorites.filter((f) => f !== family));
+      setVaforitesAndStorage(favorites.filter((f) => f !== family));
+    } else {
+      console.log([...favorites, family]);
+      setVaforitesAndStorage([...favorites, family]);
+    }
+  };
 
   return (
     <Container className={classes.container}>
@@ -41,6 +54,8 @@ function Cards({ fonts, options: { fontText, fontSize, listMode } }) {
                 url={url}
                 textValue={textValue}
                 fontSize={fontSize}
+                isFavorite={favorites.includes(family)}
+                toggleFavorite={toggleFavorite}
               />
             </LazyLoad>
           </Grid>

@@ -22,6 +22,14 @@ function AppMain({ fonts, theme, setTheme }) {
   const [listMode, setListMode] = useState(false);
   const [favoritesMode, setFavoritestMode] = useState(false);
 
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem('favorites')) || [],
+  );
+  const setVaforitesAndStorage = (newFavorites) => {
+    setFavorites(newFavorites);
+    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  };
+
   return (
     <Paper className={classes.main} component="main" square>
       <Control
@@ -44,7 +52,13 @@ function AppMain({ fonts, theme, setTheme }) {
         fonts={fonts.filter((f) =>
           f.lcFamily.includes(fontName.trim().toLowerCase()),
         )}
-        options={{ fontText, fontSize, listMode }}
+        options={{
+          fontText,
+          fontSize,
+          listMode,
+          favorites,
+          setVaforitesAndStorage,
+        }}
       />
     </Paper>
   );

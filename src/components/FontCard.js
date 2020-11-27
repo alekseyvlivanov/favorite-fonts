@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Card, CardContent, CardHeader, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-// import BookmarkIcon from '@material-ui/icons/Bookmark';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -10,7 +10,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function FontCard({ category, family, url, textValue, fontSize }) {
+function FontCard({
+  category,
+  family,
+  url,
+  textValue,
+  fontSize,
+  isFavorite,
+  toggleFavorite,
+}) {
   const classes = useStyles();
 
   useEffect(() => {
@@ -27,8 +35,11 @@ function FontCard({ category, family, url, textValue, fontSize }) {
     <Card className={classes.card}>
       <CardHeader
         action={
-          <IconButton aria-label="add to favorites">
-            <BookmarkBorderIcon />
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() => toggleFavorite(family)}
+          >
+            {isFavorite ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>
         }
         title={family}
