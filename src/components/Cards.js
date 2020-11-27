@@ -27,10 +27,8 @@ function Cards({
 
   const toggleFavorite = (family) => {
     if (favorites.includes(family)) {
-      console.log(favorites.filter((f) => f !== family));
       setVaforitesAndStorage(favorites.filter((f) => f !== family));
     } else {
-      console.log([...favorites, family]);
       setVaforitesAndStorage([...favorites, family]);
     }
   };

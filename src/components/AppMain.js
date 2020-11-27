@@ -49,9 +49,12 @@ function AppMain({ fonts, theme, setTheme }) {
         }}
       />
       <Cards
-        fonts={fonts.filter((f) =>
-          f.lcFamily.includes(fontName.trim().toLowerCase()),
-        )}
+        fonts={fonts
+          .filter(
+            (f) =>
+              !favoritesMode || (favoritesMode && favorites.includes(f.family)),
+          )
+          .filter((f) => f.lcFamily.includes(fontName.trim().toLowerCase()))}
         options={{
           fontText,
           fontSize,
