@@ -1,6 +1,0 @@
-# Netlify redirects
-
-https://favorite-fonts-chessiah.netlify.app/* https://favorite-fonts.chessiah.com/:splat 301!
-http://favorite-fonts-chessiah.netlify.app/* https://favorite-fonts.chessiah.com/:splat 301!
-
-http://favorite-fonts.chessiah.com/* https://favorite-fonts.chessiah.com/:splat 301!

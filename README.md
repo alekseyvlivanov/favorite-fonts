@@ -4,9 +4,9 @@
 
 This is a simple font selection app.
 
-#### DEMO - https://favorite-fonts.chessiah.com
+#### DEMO - https://favorite-fonts.aleksey-vl-ivanov.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c17a82a9-3297-458a-bac9-6ce425370a6d/deploy-status)](https://app.netlify.com/sites/favorite-fonts-chessiah/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1aa71ca4-026f-4ce2-8085-e144ef9ffe0a/deploy-status)](https://app.netlify.com/sites/favorite-fonts-aleksey-vl-ivanov/deploys)
 
 <div align="center">
 <img src="favorite-fonts.png" width="400px">
