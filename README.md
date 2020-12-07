@@ -37,20 +37,20 @@ This is a simple font selection app.
 ```
 $ git clone ...
 $ cd favorite-fonts
-$ yarn install
+$ npm install
 $ echo "REACT_APP_WEBFONTS_KEY=<YOUR-GOOGLE-WEBFONTS-API-KEY-HERE>" >> .env.local
 ```
 
 ## Usage
 
 ```
-$ yarn start
+$ npm start
 ```
 
 and open http://localhost:3000 in your browser, or
 
 ```
-$ yarn build
+$ npm run build
 ```
 
 and deploy somewhere your new **build** folder. Don't forget to set the **REACT_APP_WEBFONTS_KEY** variable in your GitHub Secrets, Heroku/Netlify Vars, etc.
