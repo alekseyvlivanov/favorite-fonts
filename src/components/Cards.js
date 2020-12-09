@@ -1,4 +1,5 @@
-import LazyLoad from 'react-lazyload';
+import { useEffect } from 'react';
+import LazyLoad, { forceCheck } from 'react-lazyload';
 import { Container, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -45,6 +46,8 @@ function Cards({
     }
   };
 
+  useEffect(() => forceCheck());
+
   return (
     <Container className={classes.container}>
       <div className={classes.totalFonts}>
@@ -60,7 +63,7 @@ function Cards({
             lg={lgValue}
             xl={xlValue}
           >
-            <LazyLoad style={{ height: '100%' }}>
+            <LazyLoad placeholder="Loading..." style={{ height: '100%' }}>
               <FontCard
                 category={category}
                 family={family}
