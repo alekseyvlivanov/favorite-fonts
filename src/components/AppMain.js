@@ -61,6 +61,7 @@ function AppMain({ fonts, theme, setTheme }) {
           listMode,
           favorites,
           setVaforitesAndStorage,
+          totalFonts: fonts.length,
         }}
       />
     </Paper>

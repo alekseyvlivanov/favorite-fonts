@@ -8,11 +8,23 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(2),
   },
+  totalFonts: {
+    fontSize: 12,
+    paddingBottom: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+  },
 }));
 
 function Cards({
   fonts,
-  options: { fontText, fontSize, listMode, favorites, setVaforitesAndStorage },
+  options: {
+    fontText,
+    fontSize,
+    listMode,
+    favorites,
+    setVaforitesAndStorage,
+    totalFonts,
+  },
 }) {
   const classes = useStyles();
 
@@ -35,6 +47,9 @@ function Cards({
 
   return (
     <Container className={classes.container}>
+      <div className={classes.totalFonts}>
+        {fonts.length} of {totalFonts} families
+      </div>
       <Grid container spacing={3}>
         {fonts.map(({ category, family, url }) => (
           <Grid
