@@ -71,7 +71,10 @@ function App() {
         const result = response.data.items;
 
         const fontsData = result
-          .filter((f) => f.variants.includes('regular'))
+          .filter(
+            (f) =>
+              f.variants.includes('regular') && f.subsets.includes('latin'),
+          )
           .map(({ category, family }) => ({
             category,
             family,

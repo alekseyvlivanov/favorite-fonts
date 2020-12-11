@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple font selection app.
+This is a font selection app.
 
 #### DEMO - https://favorite-fonts.aleksey-vl-ivanov.com
 
@@ -16,7 +16,7 @@ This is a simple font selection app.
 
 - the app tries to mimic some [Google Fonts](https://fonts.google.com) features
 - the [Google Fonts API](https://developers.google.com/fonts/docs/getting_started) and the [Google Fonts Developer API](https://developers.google.com/fonts/docs/developer_api) are used
-- only fonts with regular variant sorted by popularity are fetched for simplicity
+- only fonts with regular variant and latin subset sorted by popularity are fetched for simplicity
 - filter fonts by name
 - custom text to display
 - different font sizes
