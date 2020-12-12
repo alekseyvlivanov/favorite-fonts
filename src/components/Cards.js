@@ -23,7 +23,7 @@ function Cards({
     fontSize,
     listMode,
     favorites,
-    setVaforitesAndStorage,
+    setFavorites,
     totalFonts,
   },
 }) {
@@ -40,9 +40,9 @@ function Cards({
 
   const toggleFavorite = (family) => {
     if (favorites.includes(family)) {
-      setVaforitesAndStorage(favorites.filter((f) => f !== family));
+      setFavorites(favorites.filter((f) => f !== family));
     } else {
-      setVaforitesAndStorage([...favorites, family]);
+      setFavorites([...favorites, family]);
     }
   };
 

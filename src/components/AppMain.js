@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -25,10 +25,10 @@ function AppMain({ fonts, theme, setTheme }) {
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem('favorites')) || [],
   );
-  const setVaforitesAndStorage = (newFavorites) => {
-    setFavorites(newFavorites);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
-  };
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   return (
     <Paper className={classes.main} component="main" square>
@@ -60,7 +60,7 @@ function AppMain({ fonts, theme, setTheme }) {
           fontSize,
           listMode,
           favorites,
-          setVaforitesAndStorage,
+          setFavorites,
           totalFonts: fonts.length,
         }}
       />
