@@ -6,8 +6,6 @@ This is a font selection app.
 
 #### DEMO - https://favorite-fonts.aleksey-vl-ivanov.com
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1aa71ca4-026f-4ce2-8085-e144ef9ffe0a/deploy-status)](https://app.netlify.com/sites/favorite-fonts-aleksey-vl-ivanov/deploys)
-
 <div align="center">
 <img src="favorite-fonts.png" width="400px">
 </div>
